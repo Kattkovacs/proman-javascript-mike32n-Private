@@ -1,8 +1,11 @@
 import csv
+import os
 
-STATUSES_FILE = './data/statuses.csv'
-BOARDS_FILE = './data/boards.csv'
-CARDS_FILE = './data/cards.csv'
+DIRNAME = os.path.dirname(__file__)
+
+STATUSES_FILE = f'{DIRNAME}/data/statuses.csv'
+BOARDS_FILE = f'{DIRNAME}/data/boards.csv'
+CARDS_FILE = f'{DIRNAME}/data/cards.csv'
 
 _cache = {}  # We store cached data in this dict to avoid multiple file readings
 
@@ -49,3 +52,8 @@ def get_boards(force=False):
 
 def get_cards(force=False):
     return _get_data('cards', CARDS_FILE, force)
+
+
+if __name__ == '__main__':
+    print(os.getcwd())
+    print(dirname)
